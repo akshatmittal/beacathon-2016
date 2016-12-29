@@ -12,6 +12,13 @@ if(!isset($_POST['version'])) {
   die("No version");
 }
 
+function getFreq($mysqli, $uid) {
+  $sql = "SELECT what FROM orders WHERE who = '$uid' GROUP BY what ORDER BY COUNT(*) DESC";
+  $results = $mysqli->query($sql);
+  $row = $results->fetch_assoc();
+  return $row['what'];
+}
+
 if(isset($_POST['action']) && $_POST['action'] == "fetch") {
   if(!isset($_POST['uuid'])) {
     die("No UUID");
@@ -21,6 +28,7 @@ if(isset($_POST['action']) && $_POST['action'] == "fetch") {
   $sql = "SELECT * FROM users WHERE uuid = '$uuid'";
   $results = $mysqli->query($sql);
   $row = $results->fetch_assoc();
+  $row['freq'] = getFreq($mysqli, $row['uid']);
   die(json_encode($row));
 }
 
