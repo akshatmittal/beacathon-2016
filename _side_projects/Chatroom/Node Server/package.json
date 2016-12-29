@@ -1,0 +1,27 @@
+{
+  "name": "chat-anarchy",
+  "version": "2.0.0",
+  "description": "Multi-user, multi-room chat using socket.io and chat-anarchy-server.",
+  "repository": "https://github.com/barberboy/chat-anarchy",
+  "main": "server.js",
+  "dependencies": {
+    "chat-anarchy-mediabot": "1.0.0",
+    "chat-anarchy-server": "1.0.0",
+    "chat-anarchy-whobot": "1.0.0",
+    "socket.io": "^1.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "socket-io",
+    "socket.io",
+    "chat",
+    "anarchy",
+    "multi-room",
+    "multi-user"
+  ],
+  "author": "Benjamin Barber",
+  "license": "ISC"
+}

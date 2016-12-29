@@ -1,0 +1,36 @@
+{
+    "cordova-plugin-eddystone": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/evothings/cordova-eddystone.git",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-whitelist": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-whitelist@1"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-ble": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-ble"
+        },
+        "is_top_level": false,
+        "variables": {}
+    },
+    "cl.kunder.webview": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kunder-lab/cl.kunder.webview.git",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
+    }
+}
