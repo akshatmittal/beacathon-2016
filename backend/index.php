@@ -29,7 +29,9 @@ if(isset($_POST['action']) && $_POST['action'] == "fetch") {
   $results = $mysqli->query($sql);
   $row = $results->fetch_assoc();
   $row['freq'] = getFreq($mysqli, $row['uid']);
-  die(json_encode($row));
+  $x = [];
+  $x['json'] = $row;
+  die(json_encode($x));
 }
 
 if(isset($_POST['action']) && $_POST['action'] == "order") {
@@ -41,10 +43,12 @@ if(isset($_POST['action']) && $_POST['action'] == "order") {
   $what = $_POST['what'];
   $price = $_POST['price'];
   $qty = $_POST['qty'];
-  $when = date();
+  $when = time();
 
   $sql = "INSERT INTO orders (`who`,`what`,`price`,`qty`,`when`,`paid`) VALUES ('$who', '$what', $price, $qty, '$when', 1)";
   $results = $mysqli->query($sql);
-  $row = $results->fetch_assoc();
-  die(json_encode($row));
+  $row = $mysqli->affected_rows();
+  $x = [];
+  $x['json'] = $row;
+  die(json_encode($x));
 }
