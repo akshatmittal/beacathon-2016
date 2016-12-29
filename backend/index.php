@@ -25,12 +25,17 @@ if(isset($_POST['action']) && $_POST['action'] == "fetch") {
 }
 
 if(isset($_POST['action']) && $_POST['action'] == "order") {
-  if(!isset($_POST['uuid'])) {
-    die("No UUID");
+  if(!isset($_POST['who']) || !isset($_POST['what']) || !isset($_POST['price']) || !isset($_POST['qty'])) {
+    die("Order Details missing");
   }
-  $uuid = ($_POST['uuid']);
 
-  $sql = "SELECT * FROM users WHERE uuid = '$uuid'";
+  $who = $_POST['who'];
+  $what = $_POST['what'];
+  $price = $_POST['price'];
+  $qty = $_POST['qty'];
+  $when = date();
+
+  $sql = "INSERT INTO orders (`who`,`what`,`price`,`qty`,`when`,`paid`) VALUES ('$who', '$what', $price, $qty, '$when', 1)";
   $results = $mysqli->query($sql);
   $row = $results->fetch_assoc();
   die(json_encode($row));
