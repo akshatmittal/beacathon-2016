@@ -56,9 +56,6 @@ public class MainActivity extends AppCompatActivity implements BeaconConsumer,Mo
 
 
     }
-
-
-
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            String permissions[], int[] grantResults) {
